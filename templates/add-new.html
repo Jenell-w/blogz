@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Write a New Blog Entry:</h1>
+<form method='post' style="display:inline-block;">
+    <table>
+        <tr>
+    <td><label>
+        Title
+        <br><input type='text' name='title' /><br><br>
+        <p class='error'>{{error1}}</p>
+    </td>
+    </tr>
+    
+    </label><br><br>
+        <tr>
+        <td><label>
+        New Entry
+        <br><textarea name='body' rows="10" cols="30">Blog here!
+        </textarea>
+    </label>
+      </td>
+   </tr>
+    </table><br>
+    <p class='error'>{{error2}}</p>
+    <input type="submit" value='Add Entry' />
+</form>
+
+{% endblock %}
