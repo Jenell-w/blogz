@@ -40,10 +40,18 @@ def new_post():
         
     return render_template('add-new.html')
 
+@app.route('/blog-entry')
+def display_entry():
+    title = request.args.get('title')
+    body = request.args.get('body')
+    return render_template('blog-entry.html', title=title, body=body)
+
+
 @app.route('/blog')
 def blog():
     entries = Blog.query.all()
-    return render_template('full-blog.html', title="My Blog", entries=entries)
+    blogid = Blog.query.filter(Blog.id).all()
+    return render_template('full-blog.html', title="My Blog", entries=entries, blogid=blogid)
 
 if __name__ == '__main__':
     app.run()

@@ -3,14 +3,15 @@
 {% block content %}
 
    <h2>{{title}}</h2>
-   <br><br>
-
-    <ul>
+   <br>
+   
         {% for entry in entries %}
-        <li><strong>{{entry.title}}</strong></li>
-        <li>{{entry.body}}</li>
+        {% for blog in blogid %}
+        <h2><strong><a href="/blog-entry?id={{blogid}}">{{entry.title}}</a></strong></h2>
+        <hr>
+        <p>{{entry.body}}</p>
         {% endfor %}
-    </ul>
+        {% endfor %}
 
 
 {% endblock %}
