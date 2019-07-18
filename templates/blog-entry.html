@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for blogid in blog %}
-        <h1>{{blogid.title}} </h1>
+{% if id_value != 0 %}
+        <h1>{{title}} </h1>
         <hr>
         <p>{{body}}</p>
-{% endfor %}
-
+{% endif %}
 
 {% endblock %}
