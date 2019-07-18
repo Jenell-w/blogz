@@ -6,11 +6,11 @@
    <br>
    
         {% for entry in entries %}
-        {% for blog in blogid %}
+    
         <h2><strong><a href="/blog-entry?id={{blogid}}">{{entry.title}}</a></strong></h2>
         <hr>
         <p>{{entry.body}}</p>
-        {% endfor %}
+        
         {% endfor %}
 
 

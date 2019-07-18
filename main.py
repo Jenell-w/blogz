@@ -42,15 +42,20 @@ def new_post():
 
 @app.route('/blog-entry')
 def display_entry():
-    title = request.args.get('title')
+# I need to find the id of the entry in the table (blog) and pull it out and 
+#display the associated title and body.  how do i get the individual blog id
+#and find the associated table information?  
+    title = request.args.get('title')    
     body = request.args.get('body')
-    return render_template('blog-entry.html', title=title, body=body)
+    blogid = Blog.query.filter_by(id=1).first() 
+    return render_template('blog-entry.html', title=title, body=body, blogid=blogid)
 
-
+# my blogid query below does not seem to be extracting just the id number from the table
+# Perhaps these two routes ('/blog-entry') and ('/blog) need to be reconfigured?
 @app.route('/blog')
 def blog():
     entries = Blog.query.all()
-    blogid = Blog.query.filter(Blog.id).all()
+    blogid = Blog.query.filter_by(id=1).first()
     return render_template('full-blog.html', title="My Blog", entries=entries, blogid=blogid)
 
 if __name__ == '__main__':
